@@ -105,14 +105,4 @@ class Chandrayaan3 {
         }
         return currentDirection;
     }
-
-    public static void main(String[] args) {
-        Chandrayaan3 c = new Chandrayaan3();
-
-        int arr[] = c.getPosition(new int[] { 0, 0, 0 }, 'E', new char[] { 'b', 'u', 'b', 'l', 'f' });
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
 }

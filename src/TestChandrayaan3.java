@@ -12,8 +12,13 @@ public class TestChandrayaan3 {
 
     char currDirection[] = { 'W', 'N', 'S', 'E', 'W' };
     int expectedOutput[][] = { { 0, 0, 1 }, { 0, 1, -1 }, { -1, 1, 1 }, { 0, 0, -1 }, { 1, 0, -1 } };
-    char[][] commands = { { 'f', 'r', 'l', 'b', 'u', 'f', 'r' }, { 'f', 'r', 'u', 'b', 'l' },
-            { 'f', 'l', 'b', 'u', 'f', 'r' }, { 'b', 'u', 'b', 'l', 'f' }, { 'u', 'b', 'l', 'f', 'u' } };
+    char[][] commands = {
+            { 'f', 'r', 'l', 'b', 'u', 'f', 'r' },
+            { 'f', 'r', 'u', 'b', 'l' },
+            { 'f', 'l', 'b', 'u', 'f', 'r' },
+            { 'b', 'u', 'b', 'l', 'f' },
+            { 'u', 'b', 'l', 'f', 'u' } };
+
     char finalDirection[] = { 'E', 'W', 'E', 'W', 'U' };
 
     Chandrayaan3 obj;
