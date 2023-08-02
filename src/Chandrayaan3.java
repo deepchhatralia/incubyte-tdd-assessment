@@ -97,16 +97,4 @@ class Chandrayaan3 {
     public char getDirection() {
         return currentDirection;
     }
-
-    // public static void main(String[] args) {
-    // Chandrayaan3 o = new Chandrayaan3();
-    // int[] temp = { 0, 0, 0 };
-
-    // o.getPosition(temp, 'S', new char[] { 'f', 'l', 'b', 'u', 'f', 'r' });
-
-    // for (int i = 0; i < temp.length; i++) {
-    // System.out.print(temp[i] + " ");
-    // }
-    // System.out.println(o.getDirection());
-    // }
 }
