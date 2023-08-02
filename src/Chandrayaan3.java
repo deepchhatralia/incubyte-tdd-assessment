@@ -37,7 +37,7 @@ class Chandrayaan3 {
             } else {
                 initialStartingPoint[1] -= 1;
             }
-        } else if (currentDirection == 'U') {
+        } else if (currentDirection == 'U' || currentDirection == 'D') {
             if (frontOrBack == 'f') {
                 initialStartingPoint[2] += 1;
             } else {
@@ -73,7 +73,9 @@ class Chandrayaan3 {
             }
         } else if (whichDirection == 'u') {
             return 'U';
-        }
+        } else if (whichDirection == 'd')
+            return 'D';
+
         return currentDirection;
     }
 
@@ -94,5 +96,17 @@ class Chandrayaan3 {
 
     public char getDirection() {
         return currentDirection;
+    }
+
+    public static void main(String[] args) {
+        Chandrayaan3 o = new Chandrayaan3();
+        int[] temp = { 0, 0, 0 };
+
+        o.getPosition(temp, 'W', new char[] { 'f', 'r', 'l', 'b', 'u', 'f', 'r' });
+
+        for (int i = 0; i < temp.length; i++) {
+            System.out.print(temp[i] + " ");
+        }
+        System.out.println(o.getDirection());
     }
 }

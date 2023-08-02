@@ -11,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestChandrayaan3 {
     int initialStartingPoint[] = { 0, 0, 0 };
     char initialDirection;
-    char commands[] = { 'f', 'r', 'u', 'b', 'l' };
+    char commands[] = { 'f', 'l', 'b', 'u', 'f', 'r' };
 
     Chandrayaan3 obj;
 
     public TestChandrayaan3() {
-        this.initialDirection = 'N';
+        this.initialDirection = 'S';
         this.obj = new Chandrayaan3();
     }
 
@@ -29,14 +29,13 @@ public class TestChandrayaan3 {
 
     @Test
     public void getFinalPosition() {
-        int expectedPosition[] = { 0, 1, -1 };
+        int expectedPosition[] = { -1, 1, 1 };
         assertArrayEquals(expectedPosition, obj.getPosition(initialStartingPoint, initialDirection, commands));
     }
 
-    @Disabled
-    @Test
-    public void getFinalDirection() {
-        assertEquals('N', obj.getDirection());
-    }
+    // @Test
+    // public void getFinalDirection() {
+    // assertEquals('N', obj.getDirection());
+    // }
 
 }
