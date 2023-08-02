@@ -4,18 +4,17 @@
 // import org.junit.*;
 
 import org.junit.jupiter.api.*;
-// because assertEquals is static method
-// import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestChandrayaan3 {
     int initialStartingPoint[] = { 0, 0, 0 };
     char initialDirection;
 
-    char currDirection[] = { 'W', 'N', 'S' };
-    int expectedOutput[][] = { { 0, 0, 1 }, { 0, 1, -1 }, { -1, 1, 1 } };
+    char currDirection[] = { 'W', 'N', 'S', 'E' };
+    int expectedOutput[][] = { { 0, 0, 1 }, { 0, 1, -1 }, { -1, 1, 1 }, { 0, -1, 0 } };
     char[][] commands = { { 'f', 'r', 'l', 'b', 'u', 'f', 'r' }, { 'f', 'r', 'u', 'b', 'l' },
-            { 'f', 'l', 'b', 'u', 'f', 'r' } };
+            { 'f', 'l', 'b', 'u', 'f', 'r' }, { 'b', 'u', 'b', 'l', 'f' } };
+    char finalDirection[] = { 'E', 'W', 'E', 'W' };
 
     Chandrayaan3 obj;
 
@@ -31,15 +30,15 @@ public class TestChandrayaan3 {
         assertArrayEquals(temp, obj.move(initialStartingPoint, initialDirection, 'f'));
     }
 
+    // test single command, returns position
     @Test
-    public void getFinalPosition() {
-        // int expectedPosition[] = { -1, 1, 1 };
+    public void getPosition() {
         assertArrayEquals(expectedOutput[1], obj.getPosition(initialStartingPoint, currDirection[1], commands[1]));
     }
 
+    // test all commands from the array, returns position
     @Test
     public void testAllCommands() {
-
         for (int i = 0; i < 3; i++) {
             assertArrayEquals(expectedOutput[i], obj.getPosition(initialStartingPoint,
                     currDirection[i], commands[i]));
@@ -50,9 +49,13 @@ public class TestChandrayaan3 {
         }
     }
 
+    // gets final direction of all commands, returns direction
     @Test
-    public void getFinalDirection() {
-        assertEquals('N', obj.getDirection());
+    public void getDirections() {
+        for (int i = 0; i < commands.length; i++) {
+            assertEquals(finalDirection[i],
+                    obj.getDirection(initialStartingPoint, currDirection[i], commands[i]));
+        }
     }
 
 }

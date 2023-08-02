@@ -1,5 +1,4 @@
 class Chandrayaan3 {
-    char finalDirection = 'N';
     char currentDirection;
     int finalPosition[] = new int[3];
 
@@ -94,7 +93,17 @@ class Chandrayaan3 {
         return initialStartingPoint;
     }
 
-    public char getDirection() {
+    public char getDirection(int initialStartingPoint[], char initialDirection, char command[]) {
+        for (int i = 0; i < command.length; i++) {
+            char c = command[i];
+
+            if (c == 'f' || c == 'b') {
+                changePosition(initialStartingPoint, currentDirection, c);
+            } else if (c == 'r' || c == 'l' || c == 'u') {
+                currentDirection = changeDirection(initialStartingPoint, currentDirection, c);
+            }
+        }
         return currentDirection;
     }
+
 }
