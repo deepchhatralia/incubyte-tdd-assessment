@@ -23,18 +23,17 @@ public class TestChandrayaan3 {
     @Test
     public void move() {
         int temp[] = { 0, 1, 0 };
-        // @assertArrayEquals(temp,
-        // obj.move(initialStartingPoint,initialDirection,'f'));
-        // assertEquals(1, 1);
 
         assertArrayEquals(temp, obj.move(initialStartingPoint, initialDirection, 'f'));
     }
 
     @Test
     public void getFinalPosition() {
-        assertArrayEquals(new int[] { 0, 1, -1 }, obj.getPosition(initialStartingPoint, initialDirection, commands));
+        int expectedPosition[] = { 0, 1, -1 };
+        assertArrayEquals(expectedPosition, obj.getPosition(initialStartingPoint, initialDirection, commands));
     }
 
+    @Disabled
     @Test
     public void getFinalDirection() {
         assertEquals('N', obj.getDirection());

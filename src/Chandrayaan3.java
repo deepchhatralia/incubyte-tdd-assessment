@@ -1,5 +1,6 @@
 class Chandrayaan3 {
     char finalDirection = 'N';
+    char currentDirection;
     int finalPosition[] = new int[3];
 
     public int[] move(int initialStartingPoint[], char initialDirection, char whichMove) {
@@ -20,11 +21,78 @@ class Chandrayaan3 {
         return initialStartingPoint;
     }
 
+    public void changePosition(int[] initialStartingPoint, char currentDirection, char frontOrBack) {
+        // change x (0 index) value
+        if (currentDirection == 'E' || currentDirection == 'W') {
+            if (frontOrBack == 'f') {
+                initialStartingPoint[0] += 1;
+            } else {
+                initialStartingPoint[0] -= 1;
+            }
+        }
+        // change y (1 index) value
+        else if (currentDirection == 'N' || currentDirection == 'S') {
+            if (frontOrBack == 'f') {
+                initialStartingPoint[1] += 1;
+            } else {
+                initialStartingPoint[1] -= 1;
+            }
+        } else if (currentDirection == 'U') {
+            if (frontOrBack == 'f') {
+                initialStartingPoint[2] += 1;
+            } else {
+                initialStartingPoint[2] -= 1;
+            }
+        }
+    }
+
+    public char changeDirection(int[] initialStartingPoint, char currentDirection, char whichDirection) {
+        if (whichDirection == 'r') {
+            if (currentDirection == 'E') {
+                return 'S';
+            } else if (currentDirection == 'W') {
+                return 'N';
+            } else if (currentDirection == 'N') {
+                return 'E';
+            } else if (currentDirection == 'S') {
+                return 'W';
+            } else {
+                return 'E';
+            }
+        } else if (whichDirection == 'l') {
+            if (currentDirection == 'E') {
+                return 'N';
+            } else if (currentDirection == 'W') {
+                return 'S';
+            } else if (currentDirection == 'N') {
+                return 'W';
+            } else if (currentDirection == 'S') {
+                return 'E';
+            } else {
+                return 'W';
+            }
+        } else if (whichDirection == 'u') {
+            return 'U';
+        }
+        return currentDirection;
+    }
+
     public int[] getPosition(int[] initialStartingPoint, char initialDirection, char[] commands) {
-        return new int[] { 0, 1, -1 };
+        this.currentDirection = initialDirection;
+
+        for (int i = 0; i < commands.length; i++) {
+            char c = commands[i];
+
+            if (c == 'f' || c == 'b') {
+                changePosition(initialStartingPoint, currentDirection, c);
+            } else if (c == 'r' || c == 'l' || c == 'u') {
+                currentDirection = changeDirection(initialStartingPoint, currentDirection, c);
+            }
+        }
+        return initialStartingPoint;
     }
 
     public char getDirection() {
-        return finalDirection;
+        return currentDirection;
     }
 }
