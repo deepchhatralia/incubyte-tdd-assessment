@@ -98,15 +98,15 @@ class Chandrayaan3 {
         return currentDirection;
     }
 
-    public static void main(String[] args) {
-        Chandrayaan3 o = new Chandrayaan3();
-        int[] temp = { 0, 0, 0 };
+    // public static void main(String[] args) {
+    // Chandrayaan3 o = new Chandrayaan3();
+    // int[] temp = { 0, 0, 0 };
 
-        o.getPosition(temp, 'W', new char[] { 'f', 'r', 'l', 'b', 'u', 'f', 'r' });
+    // o.getPosition(temp, 'S', new char[] { 'f', 'l', 'b', 'u', 'f', 'r' });
 
-        for (int i = 0; i < temp.length; i++) {
-            System.out.print(temp[i] + " ");
-        }
-        System.out.println(o.getDirection());
-    }
+    // for (int i = 0; i < temp.length; i++) {
+    // System.out.print(temp[i] + " ");
+    // }
+    // System.out.println(o.getDirection());
+    // }
 }
