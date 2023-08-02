@@ -11,7 +11,7 @@ public class TestChandrayaan3 {
     char initialDirection;
 
     char currDirection[] = { 'W', 'N', 'S', 'E' };
-    int expectedOutput[][] = { { 0, 0, 1 }, { 0, 1, -1 }, { -1, 1, 1 }, { 0, -1, 0 } };
+    int expectedOutput[][] = { { 0, 0, 1 }, { 0, 1, -1 }, { -1, 1, 1 }, { 0, 0, -1 } };
     char[][] commands = { { 'f', 'r', 'l', 'b', 'u', 'f', 'r' }, { 'f', 'r', 'u', 'b', 'l' },
             { 'f', 'l', 'b', 'u', 'f', 'r' }, { 'b', 'u', 'b', 'l', 'f' } };
     char finalDirection[] = { 'E', 'W', 'E', 'W' };
@@ -39,7 +39,7 @@ public class TestChandrayaan3 {
     // test all commands from the array, returns position
     @Test
     public void testAllCommands() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < commands.length; i++) {
             assertArrayEquals(expectedOutput[i], obj.getPosition(initialStartingPoint,
                     currDirection[i], commands[i]));
 
